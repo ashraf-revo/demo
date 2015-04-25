@@ -9,7 +9,8 @@ import java.util.Set;
  */
 @Entity
 public class Person {
-    @Id
+
+     @Id
     @GeneratedValue
     private Long id;
     private String name;
