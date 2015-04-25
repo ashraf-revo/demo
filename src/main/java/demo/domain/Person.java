@@ -15,7 +15,7 @@ public class Person {
     private String name;
     private String email;
     private String password;
-    @OneToMany(fetch = FetchType.LAZY,cascade = CascadeType.ALL,mappedBy = "person")
+    @OneToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL,mappedBy = "person")
     private Set<Numbers> numberses=new HashSet<>();
 
     public Person(String name, String email, String password) {
