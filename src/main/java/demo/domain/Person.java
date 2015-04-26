@@ -1,6 +1,9 @@
 package demo.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -8,15 +11,14 @@ import java.util.Set;
  * Created by ashraf on 4/25/15.
  */
 @Entity
-public class Person {
-
-     @Id
+public class Person implements Serializable{
+    @Id
     @GeneratedValue
     private Long id;
     private String name;
     private String email;
     private String password;
-    @OneToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL,mappedBy = "person")
+    @OneToMany(fetch = FetchType.LAZY,cascade = CascadeType.ALL,mappedBy = "person")
     private Set<Numbers> numberses=new HashSet<>();
 
     public Person(String name, String email, String password) {

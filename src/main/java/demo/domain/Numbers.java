@@ -1,5 +1,7 @@
 package demo.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
 /**
@@ -13,6 +15,8 @@ public class Numbers {
     private String username;
     private String phone;
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn
+    @JsonIgnore
     private Person person;
 
     public Numbers() {

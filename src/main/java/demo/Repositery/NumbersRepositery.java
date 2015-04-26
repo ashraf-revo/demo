@@ -2,11 +2,17 @@ package demo.Repositery;
 
 import demo.domain.Numbers;
 import org.springframework.data.repository.CrudRepository;
-import org.springframework.data.rest.core.annotation.RepositoryRestResource;
+
+import java.util.List;
 
 /**
  * Created by ashraf on 4/25/15.
  */
-@RepositoryRestResource
+
 public interface NumbersRepositery extends CrudRepository<Numbers, Long> {
+    public List<Numbers> findByPerson_Email(String email);
+
+    public List<Numbers> findByPhone(String phone);
+
+    public List<Numbers> findByUsernameContaining(String Username);
 }
